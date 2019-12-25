@@ -4,3 +4,24 @@
 
 <br />
 <h5>{{msg}}</h5>
+
+<ol>
+    <li *ngFor="let item of userlist">
+        {{item.user}}---{{item.age}}
+    </li>
+</ol>
+
+<hr />
+<ul>
+    <li *ngFor="let item of cars">
+        <h2>{{item.car}}</h2>
+        <ol>
+            <li *ngFor="let car of item.list">
+                <h3>{{car.title}}---{{car.price}}
+                </h3>
+            </li>
+        </ol>
+    </li>
+</ul>
+<br />
+<div [innerHTML]="title" class = "color"></div>
