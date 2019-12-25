@@ -7,8 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  aa= "abcded"
-  constructor() { }
+  aa= "abcded";
+  public username:any ={
+    name: "zhangsan",
+    age: 20
+  }
+  msg:any
+
+  constructor() {
+    this.msg = "gaibianshuxingdezhi"
+   }
 
   ngOnInit() {
   }
