@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  public flag: boolean=false;
+  public flag: boolean=true;
   public status: number = 3;
   constructor() { }
 
