@@ -3,28 +3,35 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  public picurl = "http://www.baidu.com/img/bd_logo1.png?where=super";
-
-  public list:any[] = [
-    {
-      title: "news1"
-    },
-    {
-      title: "news2"
+  public peopleInfo:any = {
+    username: "",
+    sex: "1",
+    city_list: ['北京','上海', '深圳'],
+    city: '北京',
+    hobby: [{
+      title: "吃饭",
+      checked: false
     },{
-      title: "news3"
-    }
-  ];
+      title: "睡觉",
+      checked: false
+    },{
+      title: "游戏",
+      checked: false
+    }],
+    mark: ""
+  }
 
-  public flag: boolean=true;
-  public status: number = 3;
   constructor() { }
 
   ngOnInit() {
   }
 
+  doSubmit(){
+    console.log(this.peopleInfo);
+  }
 }
+ 

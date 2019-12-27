@@ -1,38 +1,37 @@
-<p>home works!</p>
-<img [src]="picurl" alt="收藏" />
-<hr />
+<h2>人员登记系统</h2>
+<div class="people_list">
+    <ul>
+        <li>姓名：<input type="text"  [(ngModel)]="peopleInfo.username" class="forminput"/></li>
 
-<ul>
-    <li *ngFor="let item of list; let i=index" >
-        <div *ngIf="i==2" class = "color">
-        {{i}} --- {{item.title}}
-    </div>
-    <div *ngIf="i!=2">
-        {{i}} --- {{item.title}}
-    </div>
-    </li>
-</ul>
+        <li>性别： 
+            <input type="radio"  value="1" id="sex1"  [(ngModel)]="peopleInfo.sex"><label for="sex1">男</label>
+            <input type="radio"  value="2" id= "sex2"  [(ngModel)]="peopleInfo.sex"><label for="sex2">女</label>
+        </li>
 
+        <li>
+            城市： 
+            <select id='city' [(ngModel)]="peopleInfo.city">
+                <option [value]="item" *ngFor="let item of peopleInfo.city_list">{{item}}</option>
+            </select>
+        </li>
 
-<hr />
-<span [ngSwitch]="status">
-<p *ngSwitchCase="1">
-    已经支付
-</p>
-<p *ngSwitchCase="2">
-   确认订单
-</p>
-<p *ngSwitchCase="3">
-    已经发货
- </p>
- <p *ngSwitchCase="4">
-    已经收货
- </p>
-<p *ngSwitchDefault>
-    订单无效
-</p>
-</span>
+        <li>
+            爱好： 
+            <span  *ngFor="let item of peopleInfo.hobby;let k=index">
+           <input type="checkbox" [id]="'checked'+k" [(ngModel)]="item.checked"/><label [for]="'checked'+k">{{item.title}}</label>
+           &nbsp;&nbsp;
+           </span>
+        </li>
 
-<div [ngClass]="{'red': flag, 'blue': !flag}">
-    ngclass 演示
+        <li>
+            备注：
+            <textarea cols="30" rows="10" [(ngModel)]="peopleInfo.mark"></textarea>
+        </li>
+    </ul>
+    <button (click)="doSubmit()" class="submit">获取表单内容</button>
+ <br/><br/><br /><br/><br/><br />
+
+    <pre>
+        {{peopleInfo|json}}
+    </pre>
 </div>
